@@ -405,40 +405,6 @@ if st.button("🔮 Predict Demand", type="primary", use_container_width=True):
         value=f"{prediction:,.0f} MW",
         delta=None
     )
-    
-    # Visualization
-    st.markdown("---")
-    st.subheader("Prediction Context")
-    
-    # Create gauge chart
-    fig = go.Figure(go.Indicator(
-        mode="gauge+number+delta",
-        value=prediction,
-        domain={'x': [0, 1], 'y': [0, 1]},
-        title={'text': "Demand (MW)", 'font': {'size': 24}},
-        delta={'reference': 32000, 'increasing': {'color': "red"}, 'decreasing': {'color': "green"}},
-        gauge={
-            'axis': {'range': [None, 60000], 'tickwidth': 1, 'tickcolor': "darkblue"},
-            'bar': {'color': "darkblue"},
-            'bgcolor': "white",
-            'borderwidth': 2,
-            'bordercolor': "gray",
-            'steps': [
-                {'range': [0, 25000], 'color': '#90EE90'},
-                {'range': [25000, 35000], 'color': '#FFD700'},
-                {'range': [35000, 45000], 'color': '#FFA500'},
-                {'range': [45000, 60000], 'color': '#FF6347'}
-            ],
-            'threshold': {
-                'line': {'color': "red", 'width': 4},
-                'thickness': 0.75,
-                'value': 45000
-            }
-        }
-    ))
-    
-    fig.update_layout(height=400)
-    st.plotly_chart(fig, use_container_width=True)
 
 # Footer
 st.markdown("---")
