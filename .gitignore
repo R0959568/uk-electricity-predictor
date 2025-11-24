@@ -43,8 +43,10 @@ wheels/
 .streamlit/secrets.toml
 
 # Data files (too large for GitHub)
-data/interim/*.parquet
-data/interim/*.csv
+# IMPORTANT: Keep elec_cleaned_full.parquet for production deployment!
+# data/interim/*.parquet  # COMMENTED OUT - we need the parquet file for lag features
+data/interim/*.csv  # Keep CSV files excluded (too large)
+data/interim/elec_cleaned_full_sample.csv  # Sample file not needed
 Dataset_2_UK_Historic_Electricity_Demand_Data/*.csv
 
 # Keep only essential model files
