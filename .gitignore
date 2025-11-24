@@ -1,0 +1,60 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# PyCharm
+.idea/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Data files (too large for GitHub)
+data/interim/*.parquet
+data/interim/*.csv
+Dataset_2_UK_Historic_Electricity_Demand_Data/*.csv
+
+# Keep only essential model files
+data/final/models/pycaret_*.pkl
+data/final/models/rf_*.pkl
+data/final/models/gb_electricity.pkl
+data/final/models/gradientboosting_optimized.pkl
+
+# Logs
+*.log
+
+# Test files
+test_model.py
