@@ -1,0 +1,46 @@
+{
+  "analysis_date": "2025-11-23 18:33:30",
+  "dataset": "UK Electricity Demand (2001-2025)",
+  "total_models_compared": 4,
+  "best_model": {
+    "name": "Gradient Boosting",
+    "mae": 4411.087508126892,
+    "rmse": 5127.381740445101,
+    "r2": 0.5538415571714121,
+    "environment": "Local"
+  },
+  "all_models": [
+    {
+      "Model": "Gradient Boosting",
+      "MAE (MW)": 4411.087508126892,
+      "RMSE (MW)": 5127.381740445101,
+      "R\u00b2": 0.5538415571714121,
+      "Environment": "Local",
+      "Training Time (s)": null
+    },
+    {
+      "Model": "LightGBM (PyCaret Tuned)",
+      "MAE (MW)": 4413.898972929827,
+      "RMSE (MW)": 5144.764047200601,
+      "R\u00b2": 0.550811391350452,
+      "Environment": "Local",
+      "Training Time (s)": null
+    },
+    {
+      "Model": "Random Forest (GridSearch)",
+      "MAE (MW)": 4430.489135049718,
+      "RMSE (MW)": 5153.756209493373,
+      "R\u00b2": 0.5492398103313718,
+      "Environment": "Local",
+      "Training Time (s)": null
+    },
+    {
+      "Model": "Linear Regression (Baseline)",
+      "MAE (MW)": 4628.761386179389,
+      "RMSE (MW)": 5445.94395732069,
+      "R\u00b2": 0.4966800480515561,
+      "Environment": "Local",
+      "Training Time (s)": null
+    }
+  ]
+}

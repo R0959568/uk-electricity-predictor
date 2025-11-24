@@ -1,0 +1,5 @@
+model,mae,rmse,r2,train_samples,test_samples,best_params
+Linear Regression (Baseline),1859.7622407681506,2588.2229983256307,0.7918006473277807,86735.0,86736.0,
+Gradient Boosting (Enhanced),2353.2317452682964,3107.241645122086,0.6999276019971238,,,
+Random Forest (GridSearch),2435.1439487360703,3222.725133795981,0.6772081779814789,,,"{'max_depth': 20, 'min_samples_leaf': 5, 'min_samples_split': 10, 'n_estimators': 200}"
+AutoML (PyCaret Tuned),2820.3014717072497,3512.2008874068715,0.6166153790767184,86735.0,86736.0,

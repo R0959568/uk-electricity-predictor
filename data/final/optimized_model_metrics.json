@@ -1,0 +1,18 @@
+{
+    "model": "GradientBoosting (Optimized)",
+    "mae": 4410.657280793913,
+    "rmse": 5130.260623866109,
+    "r2": 0.5533404052004705,
+    "best_params": {
+        "subsample": 1.0,
+        "n_estimators": 300,
+        "min_samples_split": 5,
+        "max_depth": 7,
+        "learning_rate": 0.05
+    },
+    "improvement_over_original": {
+        "mae_pct": 0.00975331666367631,
+        "rmse_pct": -0.056147241745223134,
+        "r2_pct": -0.09048652352871175
+    }
+}

@@ -1,0 +1,36 @@
+[
+  {
+    "model": "Linear Regression (Baseline)",
+    "mae": 1859.7622407681506,
+    "rmse": 2588.2229983256307,
+    "r2": 0.7918006473277807,
+    "train_samples": 86735,
+    "test_samples": 86736
+  },
+  {
+    "model": "AutoML (PyCaret Tuned)",
+    "mae": 2820.3014717072497,
+    "rmse": 3512.2008874068715,
+    "r2": 0.6166153790767184,
+    "train_samples": 86735,
+    "test_samples": 86736
+  },
+  {
+    "model": "Random Forest (GridSearch)",
+    "mae": 2435.1439487360703,
+    "rmse": 3222.725133795981,
+    "r2": 0.6772081779814789,
+    "best_params": {
+      "max_depth": 20,
+      "min_samples_leaf": 5,
+      "min_samples_split": 10,
+      "n_estimators": 200
+    }
+  },
+  {
+    "model": "Gradient Boosting (Enhanced)",
+    "mae": 2353.2317452682964,
+    "rmse": 3107.241645122086,
+    "r2": 0.6999276019971238
+  }
+]

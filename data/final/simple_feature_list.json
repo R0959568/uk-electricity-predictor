@@ -1,0 +1,29 @@
+{
+  "features": [
+    "year",
+    "month",
+    "day",
+    "hour",
+    "day_of_week",
+    "quarter",
+    "week_of_year",
+    "is_weekend",
+    "is_business_hours",
+    "is_night",
+    "is_peak_morning",
+    "is_peak_evening",
+    "season",
+    "hour_sin",
+    "hour_cos",
+    "month_sin",
+    "month_cos",
+    "day_of_week_sin",
+    "day_of_week_cos",
+    "is_holiday",
+    "is_day_before_holiday",
+    "is_day_after_holiday",
+    "weekend_hour",
+    "holiday_hour",
+    "month_hour"
+  ]
+}

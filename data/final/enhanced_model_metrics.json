@@ -1,0 +1,16 @@
+{
+  "model": "Gradient Boosting (Enhanced Features)",
+  "mae": 2353.2317452682964,
+  "rmse": 3107.241645122086,
+  "r2": 0.6999276019971238,
+  "num_features": 33,
+  "train_samples": 86735,
+  "test_samples": 86736,
+  "top_5_features": [
+    "demand_lag_7d",
+    "demand_lag_1",
+    "demand_lag_1d",
+    "demand_diff_from_24h_avg",
+    "demand_rolling_std_24h"
+  ]
+}
