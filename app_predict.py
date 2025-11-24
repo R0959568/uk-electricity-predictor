@@ -212,34 +212,40 @@ def compute_enhanced_features(prediction_datetime, historical_df=None):
     month_hour = month * hour
     
     # Lag features and rolling statistics (if historical data available)
-    # Use typical UK demand values as defaults (instead of 0) to avoid model extrapolation issues
-    # These are based on seasonal and hourly patterns from the training data
-    typical_demand = 35000  # Typical UK demand in MW
+    # Calculate realistic typical demand based on hour, season, and day of week
+    # Base demand varies significantly by hour of day
+    hour_demand_profile = {
+        0: 23000, 1: 21000, 2: 20000, 3: 19500, 4: 19000, 5: 20000,
+        6: 24000, 7: 30000, 8: 35000, 9: 37000, 10: 38000, 11: 38500,
+        12: 38000, 13: 37500, 14: 37000, 15: 36500, 16: 37000, 17: 39000,
+        18: 41000, 19: 42000, 20: 40000, 21: 37000, 22: 32000, 23: 27000
+    }
     
-    # Adjust typical demand based on time of day and season
-    if is_peak_morning or is_peak_evening:
-        typical_demand = 42000  # Higher during peak hours
-    elif is_night:
-        typical_demand = 28000  # Lower at night
+    typical_demand = hour_demand_profile.get(hour, 35000)
     
-    # Seasonal adjustment
+    # Seasonal adjustment (Winter higher, Summer lower)
     if season == 0:  # Winter
-        typical_demand *= 1.1
+        typical_demand *= 1.15
+    elif season == 1:  # Spring
+        typical_demand *= 1.0
     elif season == 2:  # Summer
-        typical_demand *= 0.9
+        typical_demand *= 0.85
+    else:  # Autumn
+        typical_demand *= 1.05
     
-    # Weekend adjustment
+    # Weekend adjustment (lower demand)
     if is_weekend:
-        typical_demand *= 0.95
+        typical_demand *= 0.90
     
-    demand_lag_1 = typical_demand
-    demand_lag_1d = typical_demand
-    demand_lag_3h = typical_demand
-    demand_lag_7d = typical_demand
-    demand_rolling_mean_24h = typical_demand
+    # Calculate lag features with hour-specific values
+    demand_lag_1 = typical_demand * 0.98  # Very recent, similar to current
+    demand_lag_1d = typical_demand * 1.0  # Same hour yesterday, same pattern
+    demand_lag_3h = hour_demand_profile.get((hour - 3) % 24, 35000) * (1.15 if season == 0 else 0.85 if season == 2 else 1.0)
+    demand_lag_7d = typical_demand * 1.0  # Same hour last week
+    demand_rolling_mean_24h = typical_demand * 0.98
     demand_rolling_std_24h = 2500  # Typical standard deviation
-    demand_rolling_mean_7d = typical_demand
-    demand_diff_from_24h_avg = 0
+    demand_rolling_mean_7d = typical_demand * 0.99
+    demand_diff_from_24h_avg = typical_demand * 0.02
     
     if historical_df is not None:
         # Find the closest historical record before prediction time
