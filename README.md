@@ -6,9 +6,10 @@ Interactive Streamlit application for predicting UK electricity demand using mac
 
 - **Real-time Predictions**: Predict electricity demand for any date and time
 - **Advanced ML Model**: Gradient Boosting with 39 enhanced features
-- **High Accuracy**: R² Score: 0.70, MAE: 2,353 MW
+- **High Accuracy**: R² Score: 0.70, MAE: 2,353 MW, RMSE: 3,107 MW
 - **Interactive UI**: Built with Streamlit for easy interaction
-- **Historical Context**: Utilizes 25 years of UK electricity data (2001-2025)
+- **Historical Context**: Includes 13MB parquet file with 25 years of UK electricity data (2001-2025)
+- **Full Lag Features**: Real historical demand data enables accurate time-series predictions
 
 ## 🚀 Quick Start
 
@@ -71,13 +72,19 @@ uk-electricity-predictor/
 ├── data/
 │   ├── final/
 │   │   └── models/
-│   │       └── gradient_boosting_enhanced.pkl  # Trained model
+│   │       └── gradient_boosting_enhanced.pkl  # Trained model (832KB)
 │   └── interim/
-│       └── elec_cleaned_full.parquet  # Historical data (not in repo)
+│       └── elec_cleaned_full.parquet  # Historical data (13MB) ✅ INCLUDED
 ├── 02_models_local.ipynb       # Model training notebook
 ├── requirements.txt            # Python dependencies
+├── enhanced_feature_list.json  # Feature configuration
 └── README.md                   # This file
 ```
+
+### 📦 Repository Size
+- **Total size**: ~14 MB (well under GitHub's 100MB file limit)
+- **Model file**: 832 KB
+- **Historical data**: 13 MB (434,014 records from 2001-2025)
 
 ## 📝 Usage
 
